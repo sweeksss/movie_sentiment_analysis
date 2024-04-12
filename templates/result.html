@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IMDB Sentiment Analysis</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+  <style>
+    /* Add your custom CSS styles here */
+    body {
+      background: #0000A0;
+      color: #fff;
+      font-family: 'Open Sans', sans-serif;
+      font-size: 28px;
+      text-align: center;
+      letter-spacing: 1.2px;
+    }
+
+    #ip3 {
+      border-radius: 85px 0px 30px 5px;
+      background: #a06db4;
+      padding: 20px;
+      width: 800px;
+      height: 95px;
+      margin: 0 auto;
+    }
+
+    #ip4 {
+      border-radius: 45px 70px 40px;
+      border: 6px solid #484b50;
+      padding: 20px;
+      width: 400px;
+      height: 150px;
+      margin: 0 auto;
+      margin-top: 20px; /* Add some margin at the top */
+    }
+
+    .btn-container {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar portion -->
+  <nav class="navbar navbar-expand-sm bg-dark fixed-top">
+    <a class="navbar-brand" href="#"><b>NLP PROJECT</b></a>
+    <a class="navbar-brand" href="#"><b><font size="2">BY GROUP D </font></b></a>
+  </nav>
+  <br><br>
+  <h2 id="ip3"><marquee BEHAVIOR=ALTERNATE direction="right">Movie Review Sentiment Analysis</marquee></h2>
+  <br>
+  <p style="color:white;font-size:20;"><b>Results for Comment</b></p>
+  </br>
+  <br>
+  <div class="results" "w3-container w3-card " id="ip4">
+    {% if prediction == 1 %}
+    <h2 style="color:rgb(182, 182, 226);">Positive Review (Movie is good)</h2>
+    {% elif prediction == 0 %}
+    <h2 style="color:red;">Negative Review (Movie is bad)</h2>
+    {% endif %}
+  </div>
+</br>
+  <div class="btn-container">
+    <a href="{{ url_for('home') }}" class="btn btn-primary">Go to Home</a>
+  </div>
+</body>
+</html>
